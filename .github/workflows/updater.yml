@@ -1,0 +1,29 @@
+# This pipelins runs once an hour and checks for new commits in the 
+# submodules. A new commit will trigger a Jenkins build.
+# -----
+# You can specify a custom docker image from Docker Hub as your
+# build environment.
+name: updater
+
+on:
+  # Triggers the workflow on push or pull request events but only for the "master" branch
+  #push:
+  #  branches: [ "master" ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+  # run once a day
+  schedule:
+    - cron: '8/15 * * * *'
+
+jobs:
+  update-repo:
+    runs-on: ubuntu-latest
+    name: Update repository
+    steps:
+      - name: Running update.sh
+        shell: bash
+        run: update.sh
+    
+    
