@@ -24,7 +24,10 @@ jobs:
     steps:
       - name: Running update.sh
         shell: bash
-        run: echo $PATH
+        run: |
+          chmod +x /home/runner/work/einsteintoolkit/einsteintoolkit/workflows/update.sh
+          ./home/runner/work/einsteintoolkit/einsteintoolkit/workflows/update.sh
+          
         
     
     
