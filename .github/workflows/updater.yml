@@ -24,7 +24,7 @@ jobs:
     steps:
       - name: Running update.sh
         shell: bash
-        run: echo $GITHUB_WORKSPACE
+        run: echo pwd
         
     
     
