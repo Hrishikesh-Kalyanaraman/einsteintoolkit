@@ -25,6 +25,5 @@ jobs:
       - name: Running update.sh
         shell: bash
         run: update.sh
-        working-directory: master
     
     
