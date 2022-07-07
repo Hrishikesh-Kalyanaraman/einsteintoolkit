@@ -24,9 +24,7 @@ jobs:
     steps:
       - name: Running update.sh
         shell: bash
-        run: |
-          chmod +x .github/workflow/update.sh
-          ./.github/workflow/update.sh
+        run: ./update.sh
           
         
     
