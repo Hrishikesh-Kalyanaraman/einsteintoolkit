@@ -24,6 +24,7 @@ jobs:
     steps:
       - name: Running update.sh
         shell: bash
-        run: update.sh
+        run: echo $GITHUB_WORKSPACE
+        
     
     
