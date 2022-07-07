@@ -25,8 +25,8 @@ jobs:
       - name: Running update.sh
         shell: bash
         run: |
-          chmod +x /home/runner/work/einsteintoolkit/einsteintoolkit/.github/workflow/update.sh
-          ./home/runner/work/einsteintoolkit/einsteintoolkit/.github/workflow/update.sh
+          chmod +x .github/workflow/update.sh
+          ./.github/workflow/update.sh
           
         
     
