@@ -22,9 +22,10 @@ jobs:
     runs-on: ubuntu-latest
     name: Update repository
     steps:
+      - uses: actions/checkout@v2
       - name: Running update.sh
         shell: bash
-        run: ./update.sh
+        run: sh ./update.sh
           
         
     
