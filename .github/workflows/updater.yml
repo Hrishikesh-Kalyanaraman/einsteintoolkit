@@ -25,7 +25,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Running update.sh
         shell: bash
-        run: sh ./update.sh
+        run: sh ./.github/workflows/update.sh
           
         
     
