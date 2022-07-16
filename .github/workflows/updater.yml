@@ -28,13 +28,7 @@ jobs:
         env:
           PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
         run: sh ./.github/workflows/update.sh
-      - name: Trigger CI workflow
-        uses: benc-uk/workflow-dispatch@v1
-        with:
-          # Name or ID of workflow to run
-          workflow: 'CI'
-          # GitHub token with repo write access, can NOT use secrets.GITHUB_TOKEN, see readme
-          token: ${{ secrets.PERSONAL_TOKEN }}
+
     
   
         
