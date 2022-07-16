@@ -22,7 +22,4 @@ $(git diff --cached --submodule=log)
 EOF
   git push
 fi
-steps:
-  - name: Creating a personal token env variable
-    env:
-      PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
+
