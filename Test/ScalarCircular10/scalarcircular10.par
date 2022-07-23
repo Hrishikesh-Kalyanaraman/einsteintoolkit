@@ -1,0 +1,33 @@
+&params
+equation_name = 'scalar_schwarzschild'
+n_elems = 128
+order = 10
+Sminus = -20.0
+p_orb = 10.0
+ecc = 0.0
+use_particle = .true.
+use_constant_acceleration = .true.
+mass = 1.0
+lmin = 0
+lmax = 2
+t_initial = 0.0
+t_final = 10.0
+use_world_tube = .true.
+use_generic_orbit = .false.
+use_osculating_orbit = .true.
+world_tube_width = 2
+use_exact_initial_data = .true.
+exact_initial_data_lmax = 2
+input_directory ='.'
+input_basename = 'SSF_init_data_p10_e0_n10'
+phi_initial = 4.9672941329
+turn_on_source_smoothly = .false.
+tsigma = 10.0
+torder = 4
+out0d_every = 40
+out1d_every = -1
+q_charge = 1.0
+q_mass = 1.0
+evolve_orbit = .false.
+output_coords_for_exact = .false.
+/

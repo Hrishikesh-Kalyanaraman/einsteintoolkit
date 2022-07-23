@@ -1,0 +1,16 @@
+&params
+equation_name = 'scalar_schwarzschild'
+n_elems = 32
+order = 10
+Sminus = -20.0
+r_center = 10.0
+mass = 1.0
+lmin = 0
+lmax = 2
+t_initial = 0.0
+t_final = 100.0
+sigma = 1.0
+amplitude = 1.0
+out0d_every = 20
+out1d_every = 57
+/
