@@ -1,0 +1,7 @@
+Import('env')
+
+for mp in ['0', '1', '2', '3', '4']:
+  env.Command('WignerD'+mp+'.h', 'WignerD.h5',
+    Action("h5dump -d \"/m'=" + mp + "\" -b -o WignerD" + mp + ".bin Src/EffSource/ScalarSchwarzschild/EffectiveSource/WignerD.h5 >/dev/null && "
+           "xxd -i WignerD" + mp +".bin Src/EffSource/ScalarSchwarzschild/EffectiveSource/WignerD" + mp +".h && rm WignerD" + mp + ".bin",
+           "$HDF5COMSTR"))

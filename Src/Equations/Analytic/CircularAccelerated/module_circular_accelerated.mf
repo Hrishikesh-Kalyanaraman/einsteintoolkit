@@ -1,0 +1,57 @@
+! The expressions gets filled in using
+! /home/diener/Mathematica_new/Non-uniform_circular_worldline_corrected_dt.nb
+! Don't execute the whole notebook as it takes way too long to simplify some
+! expressions that are not needed.
+      module accelerated_circular_orbit
+
+      use kinds
+      use parameters, only : use_gaussian_acceleration
+
+      implicit none
+
+      contains
+
+      subroutine circ_accel ( t, t0, r0, mass, sigma, amp, phi, En, Lz,
+     -                        ar, aphi, dardt, daphidt, 
+     -                        d2ardt2, d2aphidt2 )
+
+        use kinds
+        
+        real(qp), intent(in) :: t
+        real(wp), intent(in) :: t0, r0, mass, sigma, amp
+        real(wp), intent(out) :: phi, En, Lz, ar, aphi
+        real(wp), intent(out) :: dardt, daphidt, d2ardt2, d2aphidt2
+        real(wp) :: dt, omega0, f0, omega, omegap, omegapp, omegappp
+        real(qp) :: phitmp
+        real(qp), parameter :: twopiq = 2.0_qp*acos(-1.0_qp)
+        real(wp), parameter :: pi = acos(-1.0_wp)
+
+        dt = t - t0
+        f0 = <* f0exp *>
+        omega0 = <* omega0exp *>
+        if (use_gaussian_acceleration) then
+          omega = <* omegaexp2 *>
+          omegap = <* omegapexp2 *>
+          omegapp = <* omegappexp2 *>
+          omegappp = <* omegapppexp2 *>
+          phitmp = <* phiexp2 *>
+        else
+          omega = <* omegaexp *>
+          omegap = <* omegapexp *>
+          omegapp = <* omegappexp *>
+          omegappp = <* omegapppexp *>
+          phitmp = <* phiexp *>
+        end if
+        phi = real(mod(phitmp,twopiq),wp)
+        En = <* Enexp *>
+        Lz = <* Lzexp *>
+        ar = <* arexp *>
+        aphi = <* aphiexp *>
+        dardt = <* dardtexp *>
+        daphidt = <* daphidtexp *>
+        d2ardt2 = <* d2ardt2exp *>
+        d2aphidt2 = <* d2aphidt2exp *>
+        
+      end subroutine circ_accel
+
+      end module accelerated_circular_orbit

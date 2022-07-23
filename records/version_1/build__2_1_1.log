@@ -1,0 +1,55 @@
+Running 4 tests
+
+Running Test/ScalarElliptic10:
+Passed: differences below tolerance in 7 files
+Schwarzschild_wave.fphil.asc has 60 differences belov tolarance
+Schwarzschild_wave.ftl.asc has 60 differences belov tolarance
+Schwarzschild_wave.frl.asc has 60 differences belov tolarance
+Schwarzschild_wave.fl.asc has 60 differences belov tolarance
+self_force.asc has 60 differences belov tolarance
+r_schw.asc has 241 differences belov tolarance
+osc_orbit.asc has 58 differences belov tolarance
+
+Running Test/ScalarGaussianOrder8:
+Passed: differences below tolerance in 13 files
+rho.3.asc has 14652 differences belov tolarance
+pi.1.asc has 14652 differences belov tolarance
+rho.2.asc has 14652 differences belov tolarance
+rho.1.asc has 14691 differences belov tolarance
+pi.2.asc has 14629 differences belov tolarance
+pi.3.asc has 14644 differences belov tolarance
+psi.2.asc has 14633 differences belov tolarance
+r_schw.asc has 39 differences belov tolarance
+rho.4.asc has 14652 differences belov tolarance
+psi.3.asc has 14639 differences belov tolarance
+pi.4.asc has 14644 differences belov tolarance
+psi.1.asc has 14595 differences belov tolarance
+psi.4.asc has 14639 differences belov tolarance
+
+Running Test/ScalarGaussianOrder10:
+Passed: differences below tolerance in 13 files
+rho.3.asc has 17862 differences belov tolarance
+pi.1.asc has 17891 differences belov tolarance
+rho.2.asc has 17877 differences belov tolarance
+rho.1.asc has 17917 differences belov tolarance
+pi.2.asc has 17831 differences belov tolarance
+pi.3.asc has 17852 differences belov tolarance
+psi.2.asc has 17804 differences belov tolarance
+r_schw.asc has 36 differences belov tolarance
+rho.4.asc has 17862 differences belov tolarance
+psi.3.asc has 17815 differences belov tolarance
+pi.4.asc has 17852 differences belov tolarance
+psi.1.asc has 17695 differences belov tolarance
+psi.4.asc has 17815 differences belov tolarance
+
+Running Test/ScalarCircular10:
+Passed: differences below tolerance in 7 files
+circ_orbit.asc has 30 differences belov tolarance
+Schwarzschild_wave.fphil.asc has 30 differences belov tolarance
+Schwarzschild_wave.ftl.asc has 30 differences belov tolarance
+Schwarzschild_wave.frl.asc has 30 differences belov tolarance
+Schwarzschild_wave.fl.asc has 30 differences belov tolarance
+self_force.asc has 30 differences belov tolarance
+r_schw.asc has 165 differences belov tolarance
+
+

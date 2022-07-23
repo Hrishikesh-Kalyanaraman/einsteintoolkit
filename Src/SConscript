@@ -1,0 +1,110 @@
+import os
+import re
+
+Import('env')
+
+# Based on a list of source files return the possible locations of modules
+def FortranModPath ( sources ):
+    # Start with an empty modpath list
+    modpath = []
+    # Loop over the sources
+    for s in sources:
+        # Split the source into path and filename
+        path, file = os.path.split(s)
+        # Use a regex to match fortran files
+        match = re.match( r'.*(.f90|.f)$',file)
+        # If it is a fortran file add the path to the modpath list
+        if match:
+            modpath.append(path)
+
+    # Get the unique paths by converting to a set and then back to a list
+    modpath = list(set(modpath))
+    # Return the list of module paths
+    return modpath
+
+sources = [
+    'DG/module_DG_structures.f90',
+    'DG/submodule_DG_implementation.f90',
+    'EffSource/module_effective_source.f90',
+    'EffSource/ScalarSchwarzschild/module_scalar_schw_eff_source.f90',
+    'EffSource/ScalarSchwarzschild/submodule_scalar_schw_eff_source_implementation.f90',
+    'EffSource/ScalarSchwarzschild/scalar_schw_eff_interface.cc',
+    'Equations/module_equations.f90',
+    'Equations/Analytic/CircularAccelerated/module_analytic_circular_orbit.f90',
+    'Equations/Analytic/CircularAccelerated/submodule_analytic_circular_orbit_implementation.f90',
+    'Equations/Analytic/CircularAccelerated/module_circular_accelerated.f',
+    'Equations/ODE/module_ode_equations.f90',
+    'Equations/ODE/submodule_ode_equations_implementation.f90',
+    'Equations/ODE/GeodeticSchwarzschild/module_geod_schw.f90',
+    'Equations/ODE/GeodeticSchwarzschild/submodule_geod_schw_implementation.f90',
+    'Equations/ODE/OsculatingSchwarzschild/module_osc_schw.f90',
+    'Equations/ODE/OsculatingSchwarzschild/submodule_osc_schw_implementation.f90',
+    'Equations/ODE/OsculatingSchwarzschild/osc_to_accel.cc',
+    'Equations/ODE/OsculatingSchwarzschild/submodule_time_derivative_implementation.f90',
+    'Equations/PDE/module_pde_equations.f90',
+    'Equations/PDE/submodule_pde_equations_implementation.f90',
+    'Equations/PDE/ScalarSchwarzschild/module_scalar_schw.f90',
+    'Equations/PDE/ScalarSchwarzschild/module_time_dependent_coordinate.f90',
+    'Equations/PDE/ScalarSchwarzschild/submodule_scalar_schw_implementation.f90',
+    'Equations/PDE/ScalarSchwarzschild/submodule_time_dependent_coordinate_implementation.f90',
+    'Grid/module_grid.f90',
+    'Grid/submodule_grid_implementation.f90',
+    'Grid/Element/module_element.f90',
+    'Grid/Element/submodule_element_implementation.f90',
+    'Grid/GridFunction/module_grid_function.f90',
+    'Grid/GridFunction/submodule_grid_function_implementation.f90',
+    'IO/module_output.f90',
+    'Kinds/module_kinds.f90',
+    'MoL/module_mol.f90',
+    'MoL/module_all_integrators.f90',
+    'MoL/ABMV5/module_abmv5.f90',
+    'MoL/ABMV5/submodule_abmv5_implementation.f90',
+    'MoL/RK4/module_rk4.f90',
+    'MoL/RK4/submodule_rk4_implementation.f90',
+    'MoL/RK5/module_rk5.f90',
+    'MoL/RK5/submodule_rk5_implementation.f90',
+    'Numerics/module_numerics.f90',
+    'Numerics/module_gsl_interface.f90',
+    'Numerics/multifit_linear.cc',
+    'Numerics/module_hermite.f90',
+    'Numerics/submodule_hermite3_implementation.f90',
+    'Numerics/submodule_hermite5_implementation.f90',
+    'Observers/module_observers.f90',
+    'Observers/submodule_observers_implementation.f90',
+    'Observers/ScalarSelfForce/module_self_force_observer.f90',
+    'Observers/ScalarSelfForce/submodule_self_force_observer_implementation.f90',
+    'Observers/ScalarSingular/module_singular_observer.f90',
+    'Observers/ScalarSingular/submodule_singular_observer_implementation.f90',
+    'Orbit/module_orbit.f90',
+    'Parameters/module_parameters.f90',
+    'SelfForce/module_self_force.f90',
+    'SelfForce/module_acceleration_history.f90',
+    'SelfForce/submodule_acceleration_history_implementation.f90',
+    'Time/module_time.f90',
+    'WorldTube/module_world_tube.f90',
+    'WorldTube/submodule_world_tube_implementation.f90',
+    'EffSource/ScalarSchwarzschild/EffectiveSource/EffectiveSource-acceleration.cc',
+    'EffSource/ScalarSchwarzschild/EffectiveSource/WignerDMatrix.cc'
+          ] 
+
+SConscript('EffSource/ScalarSchwarzschild/EffectiveSource/SConscript')
+
+main1 = ['Main/Schwarzschild/test.f90']
+main2 = ['Main/Schwarzschild/accel_test.f90']
+main3 = ['Main/Schwarzschild/accel_history_test.f90']
+
+modpath = FortranModPath ( sources )
+
+env['F90PATH'] = modpath
+env['FORTRANPATH'] = modpath
+
+executable = 'Exe/test.x'
+executable2 = 'Exe/accel_test.x'
+executable3 = 'Exe/accel_history_test.x'
+
+
+Program(executable, sources+main1)
+Program(executable2, sources+main2)
+Program(executable3, sources+main3)
+
+Decider('MD5-timestamp')

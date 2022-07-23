@@ -1,0 +1,172 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      5045,        163]
+NotebookOptionsPosition[      4601,        144]
+NotebookOutlinePosition[      4957,        160]
+CellTagsIndexPosition[      4914,        157]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"D0", "=", 
+   RowBox[{"Flatten", "[", 
+    RowBox[{"Table", "[", 
+     RowBox[{
+      RowBox[{"N", "[", 
+       RowBox[{"WignerD", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"l", ",", "m", ",", "0"}], "}"}], ",", "\[Pi]", ",", 
+         RowBox[{"\[Pi]", "/", "2"}], ",", 
+         RowBox[{"\[Pi]", "/", "2"}]}], "]"}], "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"l", ",", "0", ",", "100"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"m", ",", "0", ",", "l"}], "}"}]}], "]"}], "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.6309265832219467`*^9, 3.630926625107253*^9}, {
+  3.630929521588958*^9, 3.630929523495536*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"D1", "=", 
+   RowBox[{"Flatten", "[", 
+    RowBox[{"Table", "[", 
+     RowBox[{
+      RowBox[{"N", "[", 
+       RowBox[{
+        RowBox[{"WignerD", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"l", ",", "m", ",", "1"}], "}"}], ",", "\[Pi]", ",", 
+          RowBox[{"\[Pi]", "/", "2"}], ",", 
+          RowBox[{"\[Pi]", "/", "2"}]}], "]"}], "/", "I"}], "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"l", ",", "1", ",", "100"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"m", ",", "0", ",", "l"}], "}"}]}], "]"}], "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.630926639652411*^9, 3.630926666635515*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"D2", "=", 
+   RowBox[{"Flatten", "[", 
+    RowBox[{"Table", "[", 
+     RowBox[{
+      RowBox[{"N", "[", 
+       RowBox[{"WignerD", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"l", ",", "m", ",", "2"}], "}"}], ",", "\[Pi]", ",", 
+         RowBox[{"\[Pi]", "/", "2"}], ",", 
+         RowBox[{"\[Pi]", "/", "2"}]}], "]"}], "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"l", ",", "2", ",", "100"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"m", ",", "0", ",", "l"}], "}"}]}], "]"}], "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.630926677124024*^9, 3.630926692186112*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"D3", "=", 
+   RowBox[{"Flatten", "[", 
+    RowBox[{"Table", "[", 
+     RowBox[{
+      RowBox[{"N", "[", 
+       RowBox[{
+        RowBox[{"WignerD", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"l", ",", "m", ",", "3"}], "}"}], ",", "\[Pi]", ",", 
+          RowBox[{"\[Pi]", "/", "2"}], ",", 
+          RowBox[{"\[Pi]", "/", "2"}]}], "]"}], "/", "I"}], "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"l", ",", "3", ",", "100"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"m", ",", "0", ",", "l"}], "}"}]}], "]"}], "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.6309267018276167`*^9, 3.630926717178791*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"D4", "=", 
+   RowBox[{"Flatten", "[", 
+    RowBox[{"Table", "[", 
+     RowBox[{
+      RowBox[{"N", "[", 
+       RowBox[{"WignerD", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"l", ",", "m", ",", "4"}], "}"}], ",", "\[Pi]", ",", 
+         RowBox[{"\[Pi]", "/", "2"}], ",", 
+         RowBox[{"\[Pi]", "/", "2"}]}], "]"}], "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"l", ",", "4", ",", "100"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"m", ",", "0", ",", "l"}], "}"}]}], "]"}], "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.6309267337380877`*^9, 3.630926746033288*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Export", "[", 
+  RowBox[{
+   RowBox[{"FileNameJoin", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<WignerD.h5\>\""}], 
+     "}"}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"D0", ",", "D1", ",", "D2", ",", "D3", ",", "D4"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\"\<Datasets\>\"", ",", 
+     RowBox[{"{", 
+      RowBox[{
+      "\"\<m'=0\>\"", ",", "\"\<m'=1\>\"", ",", "\"\<m'=2\>\"", ",", 
+       "\"\<m'=3\>\"", ",", "\"\<m'=4\>\""}], "}"}]}], "}"}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.630926781238303*^9, 3.63092678218508*^9}, {
+  3.630926846148069*^9, 3.630926905058395*^9}, {3.630933712027974*^9, 
+  3.630933719512937*^9}}]
+},
+WindowSize->{808, 702},
+WindowMargins->{{312, Automatic}, {Automatic, 0}},
+FrontEndVersion->"10.3 for Mac OS X x86 (32-bit, 64-bit Kernel) (October 9, \
+2015)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 688, 19, 28, "Input"],
+Cell[1249, 41, 671, 19, 28, "Input"],
+Cell[1923, 62, 637, 18, 28, "Input"],
+Cell[2563, 82, 673, 19, 28, "Input"],
+Cell[3239, 103, 639, 18, 28, "Input"],
+Cell[3881, 123, 716, 19, 46, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)
