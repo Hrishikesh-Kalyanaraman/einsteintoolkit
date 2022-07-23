@@ -1,0 +1,43 @@
+import sys
+import os
+env = DefaultEnvironment(ENV = {'PATH' : os.environ['PATH'],
+                                'LD_LIBRARY_PATH' : os.environ['LD_LIBRARY_PATH']},
+                         LINK = 'gfortran',
+                         LINKFLAGS = '-g -fopenmp',
+                         TOOLS= ['default', 'gfortran'])
+
+# pretty output
+if ARGUMENTS.get('VERBOSE') != '1':
+  if sys.stdout.isatty():
+    env['CXXCOMSTR'] = "\033[92mCompiling\033[0m $TARGET"
+    env['F90COMSTR'] = "\033[92mCompiling\033[0m $TARGET"
+    env['FORTRANCOMSTR'] = "\033[92mCompiling\033[0m $TARGET"
+    env['LINKCOMSTR'] = "\033[94mLinking\033[0m $TARGET"
+    env['HDF5COMSTR'] = "\033[95mGenerating\033[0m $TARGET"
+  else:
+    env['CXXCOMSTR'] = "Compiling $TARGET"
+    env['F90COMSTR'] = "Compiling $TARGET"
+    env['FORTRANCOMSTR'] = "Compiling $TARGET"
+    env['LINKCOMSTR'] = "Linking $TARGET"
+    env['HDF5COMSTR'] = "Generating $TARGET"
+
+# Build options
+env['LIBS'] = ['stdc++', 'gsl', 'm', 'gslcblas', 'lapack']
+env['LIBPATH']  = ['/usr/lib'] 
+env['F90FILESUFFIXES']=['.f90','.f']
+env['F90']      = 'gfortran'
+env['FORTRAN']  = 'gfortran'
+env['F90FLAGS'] = ['-O3', '-g', '-fopenmp',  '-ffree-line-length-none', '-Wno-missing-include-dirs']
+env['FORTRANFLAGS'] = ['-O3', '-g', '-fopenmp']
+#env['FORTRANMODDIRPREFIX'] = '-module '
+env['FORTRANMODDIR'] = '${TARGET.dir}'
+env['CPPPATH']  = ['../../scalar1deffectivesource']
+env['CXXFLAGS'] = ['-O3', '-g', '-fopenmp', '-std=c++11', '-Wall', '-Wno-unknown-pragmas']
+env['CXX'] = 'g++'
+
+Export('env')
+
+SConscript('Src/EffSource/ScalarSchwarzschild/EffectiveSource/SConscript', exports='env', variant_dir='Build', duplicate=0)
+SConscript('Src/SConscript', exports='env', variant_dir='Build', duplicate=0)
+
+Decider('MD5-timestamp')
