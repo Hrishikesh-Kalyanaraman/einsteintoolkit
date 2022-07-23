@@ -1,0 +1,31 @@
+! Set up a particle moving on an eccentric orbit with p=8.0 and e=0.1 in a
+! Schwarzschild spacetime. Specify that evolution should proceed until T=1000M
+! and that initial data files should be read in for all modes from l=0 to l=2.
+&params
+equation_name = 'scalar_schwarzschild'
+n_elems = 32
+order = 32
+Sminus = -20.0
+use_particle = .true.
+p_orb = 8.0
+ecc = 0.1
+mass = 1.0
+phi_initial = 6.295031153162002
+use_world_tube = .true.
+t_size = 7
+lmin = 0
+lmax = 2
+t_initial = 0.0
+t_final = 1000.0
+turn_on_source_smoothly = .false.
+use_exact_initial_data = .true.
+exact_initial_data_lmax = 2
+input_directory = '../InitialData/data/output'
+input_basename = 'SSF_init_data_p8_e0.1_n32'
+tsigma = 0.1
+out0d_every = 40
+out1d_every = -1
+use_osculating_orbit = .true.
+use_generic_orbit = .true.
+output_coords_for_exact = .true.
+/

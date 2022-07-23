@@ -1,0 +1,27 @@
+! Set up a particle moving on an eccentric orbit with p=7.2 and e=0.6 in a
+! Schwarzschild spacetime. Start with zero initial data and turn on the
+! effective source smoothly but fairly quickly. Evolve from l=0 to l=10
+! until T=1200M. The self-force for each l-mode (summed over m) will be
+! extracted at the particle location.
+&params
+equation_name = 'scalar_schwarzschild'
+n_elems = 32
+order = 8
+Sminus = -20.0
+use_particle = .true.
+p_orb = 7.2
+ecc = 0.5
+mass = 1.0
+use_world_tube = .true.
+t_size = 10
+lmin = 0
+lmax = 10
+t_initial = 0.0
+t_final = 1200.0
+turn_on_source_smoothly = .true.
+tsigma = 0.1
+out0d_every = 40
+out1d_every = -1
+use_osculating_orbit = .true.
+use_generic_orbit = .true.
+/

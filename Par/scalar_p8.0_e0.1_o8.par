@@ -1,0 +1,28 @@
+! Set up a particle moving on an eccentric orbit with p=8.0 and e=0.1 in a
+! Schwarzschild spacetime. Set the evolution time to zero as this parameter
+! file is only used to generate a file containing the computational coordinates
+! to be used to generate initial data for the retarded field.
+&params
+equation_name = 'scalar_schwarzschild'
+n_elems = 32
+order = 8
+Sminus = -20.0
+use_particle = .true.
+p_orb = 8.0
+ecc = 0.1
+mass = 1.0
+phi_initial = 6.295031153162002
+use_world_tube = .true.
+t_size = 7
+lmin = 0
+lmax = 2
+t_initial = 0.0
+t_final = 0.0
+turn_on_source_smoothly = .true.
+tsigma = 0.1
+out0d_every = 40
+out1d_every = -1
+use_osculating_orbit = .true.
+use_generic_orbit = .true.
+output_coords_for_exact = .true.
+/

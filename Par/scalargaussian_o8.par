@@ -1,0 +1,21 @@
+! Set up Gaussian initial data for a scalar field in a Schwarzschild spacetime.
+! The modes (l=0, m=0), (l=1, m=1), (l=2, m=0) and (l=2, m=2) will be
+! evolved to T=1000M and the field at the horizon and scri+ will be extracted
+! and output for each mode as time series data.
+&params
+equation_name = 'scalar_schwarzschild'
+n_elems = 32
+order = 8
+Sminus = -20.0
+r_center = 10.0
+mass = 1.0
+lmin = 0
+lmax = 2
+t_initial = 0.0
+t_final = 1000.0
+sigma = 1.0
+amplitude = 1.0
+out0d_every = 20
+out1d_every = 38
+use_field_observer = .true.
+/
