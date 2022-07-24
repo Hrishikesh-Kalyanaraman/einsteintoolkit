@@ -11,10 +11,10 @@ def create_summary(file):
         line_number = 0
         lines_2 = lines[0].split(" ")
         sum_data["Total available tests"] = int(lines_2[1])
+        sum_data["Unrunnable tests"] = 0
+        sum_data["Runnable tests"] = 0
         sum_data["Number of tests passed"] = 0
         sum_data["Number failed"] = 0
-        sum_data["Runnable tests"] = 0
-        sum_data["Unrunnable tests"] = 0
         while line_number < len(lines) - 1:
             #print(line_number)
             while not "Running Test" in lines[line_number]:

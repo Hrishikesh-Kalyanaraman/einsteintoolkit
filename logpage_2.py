@@ -173,7 +173,7 @@ def plot_test_data(readfile):
         axis.append(date)
         Date.append(date.strftime("%Y-%m-%d"))
         # print(axis)
-    print(axis)
+    # print(axis)
     # The python library bokeh has a special data structure called a column data source that functions similarly
     # to a dictionary
     src = bplt.ColumnDataSource(data=dict(
@@ -280,7 +280,7 @@ def summary_to_html(readfile, writefile):
     '''
 
     data = create_summary(readfile)
-    print(data)
+    # print(data)
     contents = ""
     script, div = plot_test_data(readfile)
 
@@ -291,7 +291,7 @@ def summary_to_html(readfile, writefile):
     elif data["Number failed"] != 0:
         status = "Some Tests Failed"
         # Send email if tests failed
-        # os.system(f'python3 mail.py')
+        os.system(f'python3 mail.py')
     with open(writefile, "w") as fp:
         for key in data.keys():
             # Add a table row for each data field
@@ -356,6 +356,7 @@ def summary_to_html(readfile, writefile):
             </script>
             <div class="container">
                 <h1 style="text-align:center">{status}</h1>
+                <h3 style="text-align:center"><a href="{baseurl}/tree/SelfForce-1D/records/version_{curr_ver}">Build #{curr_ver}</a></h3>
                 <table class="table table-bordered " >
                 <caption style="text-align:center;font-weight: bold;caption-side:top">Summary</caption>
                 {contents}
@@ -389,7 +390,7 @@ def write_to_csv(readfile):
     # total = sum(x[1] for x in get_times(readfile).items())  #
 
     data = create_summary(readfile)
-    print("hello")
+    # print("hello")
     #data["Time Taken"] = total / 60
     local_time = str(int(time.time()))  # datetime.today().strftime('%s') to convert to unix timestamp instead of a
     # normal date format. This helps in plotting as all x axis elements are now unique
@@ -397,8 +398,10 @@ def write_to_csv(readfile):
     #data["Compile Time Warnings"] = get_compile(f"records/version_{curr_ver}/build_{curr_ver}.log")
     with open('new_test_nums.csv', 'a') as csvfile:
         contents = f"{local_time}"
+        print(data)
         for key in data.keys():
             contents += f",{data[key]}"
+            print(contents)
         contents += f",{curr_ver}"
         contents += "\n"
         csvfile.write(contents)
