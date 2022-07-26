@@ -398,10 +398,10 @@ def write_to_csv(readfile):
     #data["Compile Time Warnings"] = get_compile(f"records/version_{curr_ver}/build_{curr_ver}.log")
     with open('new_test_nums.csv', 'a') as csvfile:
         contents = f"{local_time}"
-        print(data)
+        #print(data)
         for key in data.keys():
             contents += f",{data[key]}"
-            print(contents)
+            #print(contents)
         contents += f",{curr_ver}"
         contents += "\n"
         csvfile.write(contents)

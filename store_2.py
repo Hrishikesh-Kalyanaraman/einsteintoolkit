@@ -69,18 +69,18 @@ def get_version():
     '''
     current=0
     builds=glob.glob("./records/version_*")
-    print(builds)
+    #print(builds)
     if(len(builds)!=0):
         builds=[int(x.split("_")[-1].split(".")[0]) for x in builds]
         current=max(builds)
-        print(current)
+        #print(current)
     with open("./docs/version.txt",'w') as vers:
         for build_no in range(current,min(builds)-1,-1):
             if build_no==min(builds):
                 vers.write(f"{build_no}")
             else:
                 vers.write(f"{build_no}\n")
-    print(current + 1)
+    #print(current + 1)
     return current+1
 
 
