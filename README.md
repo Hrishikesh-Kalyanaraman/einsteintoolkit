@@ -59,7 +59,7 @@ necessary information. A brief description of what each function
 does
 
 `create_summary(file)` This function looks for the summary of the tests stored in log files such
-as build__2_1.log or build__1_2.log:
+as build__2_1.log:
 
 ![summary](https://github.com/Hrishikesh-Kalyanaraman/einsteintoolkit/blob/SelfForce-1D/images/log_file_sample.png)
 
