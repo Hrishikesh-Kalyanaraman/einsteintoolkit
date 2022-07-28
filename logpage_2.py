@@ -108,6 +108,9 @@ def gen_diffs(readfile):
             if ("Removed" in result):
                 ver -= 1
 
+
+            # uncomment once log and diff files are created
+
             # Links for logs and diffs of the tests in the test_comparison dictionary based on the number of procs
             # logl1 = f"{baseurl}/tree/gh-pages/records/version_{ver}/sim_{ver}_1/{thorn}/{test_name}.log"
             # logl2 = f"{baseurl}/tree/gh-pages/records/version_{ver}/sim_{ver}_2/{thorn}/{test_name}.log"
@@ -138,7 +141,7 @@ def gen_diffs(readfile):
 
 
 def plot_test_data(readfile):
-    # Get dataa from the csv and create lists for each field
+    # Get data from the csv and create lists for each field
     runnable = list(get_data("Runnable tests").values())
     times = list(get_data("Number of tests passed").keys())
     passed = list(get_data("Number of tests passed").values())
@@ -174,7 +177,7 @@ def plot_test_data(readfile):
     # print(axis)
     # The python library bokeh has a special data structure called a column data source that functions similarly
     # to a dictionary
-    src = bplt.ColumnDataSource(data=dict(
+    src = bplt.ColumnDataSource(data=dict(  # Makes columns that can be used in the plot.
         t=times,
         nt=axis,
         d=Date,
@@ -184,7 +187,7 @@ def plot_test_data(readfile):
         # timet=time_taken,
         # cmt=compile_warn,
         xax=[0] * len(times),
-        #url=[f"./index_{x + 1}.html" for x in range(0, curr_ver)],
+        #url=[f"./index_{x + 1}.html" for x in range(0, curr_ver)], # Uncomment once individual index files for each build is present
     ))
 
     # p is the first figure an area chart with the number of tests passed out of the ones ran
@@ -210,7 +213,8 @@ def plot_test_data(readfile):
     p.circle('nt', 'rt', size=10, color="green", source=src, legend_label="Runnable Tests")
     p.circle('nt', 'tp', size=10, color="blue", source=src, legend_label="Number of Tests Passed")
 
-    # The taptool helps have these points link to the previous builds
+    # The taptool helps have these points link to the previous builds  # uncomment once url in column data source
+                                                                        # has been uncommented.
     # url = "@url"
     # taptool = p.select(type=btools.TapTool)
     # taptool.callback = bcall.OpenURL(url=url)
@@ -223,6 +227,7 @@ def plot_test_data(readfile):
     tab1 = Panel(child=p, title="Test Results")
     p.legend.location = "top_left"
 
+    # Graphs don't correspond to current data in log files.
     # # This graph is for how long the testing part takes uses similar code to the first one but instead of area it has lines connecting points
     # p1 = bplt.figure(y_range=(0, max(time_taken) + 5), plot_width=1000, plot_height=600,
     #                  tools="tap,wheel_zoom,box_zoom,reset",
