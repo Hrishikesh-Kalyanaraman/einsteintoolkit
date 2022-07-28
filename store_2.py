@@ -98,4 +98,4 @@ if __name__ == "__main__":
     copy_logs(version)
     # copy_tests(dir1,version,1)
     # copy_tests(dir2,version,2)
-    # store_commit_id(version)
+    store_commit_id(version)
