@@ -45,7 +45,7 @@ workflow is run in a docker container (running ubuntu).
 - `logpage_@.py` - Generates the HTML pages
 - `store_2.py` - Stores logs for future use
 - `mail.py` - Send email each time tests are run
-- `new_test_nums.csv` - Stores summary stats from logs
+- `new_test_nums.csv` - Stores summary stats from logs (note:currently has random input fed to generate sample of bokeh plot)
 - `records/` - Folder contains compilation logs, logs with summary of tests, and individual test logs and diffs. 
 - `docs/new_index.html` - HTML page that is displayed on mojamil.github.io/einsteintoolkit/
 
