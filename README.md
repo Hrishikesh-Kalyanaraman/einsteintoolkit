@@ -17,9 +17,9 @@ For more info, visit https://bitbucket.org/peterdiener/selfforce-1d/src/master/.
     - [Why Github Actions](#why-github-actions)
     - [File Overview](#file-overview)
   - [Explanation of Files](#explanation-of-files)
-    - [parser](#parser)
-    - [store](#store)
-    - [logpage](#logpage)
+    - [parser_2](#parser_2)
+    - [store_2](#store_2)
+    - [logpage_2](#logpage_2)
   
 ## Introduction
 
@@ -73,7 +73,7 @@ which files are newly passing,newly failing, newly added and removed.
 
 `get_data(file)` Retrieves singular field of data from a csv and returns it as a list
 
-### store
+### store_2
 
 `copy_tests(test_dir,version,procs)`  function that is currently commented. Need link to logs anf diffs files of selfforce-1d to continue (can currently implement by linking to .out files)
 
@@ -86,7 +86,7 @@ which files are newly passing,newly failing, newly added and removed.
 `get_version()` Gets the version based on the stored files if there are no stored files
 returns 1
 
-### logpage
+### logpage_2
 
 Logpage.py generates tables for the html report page and outputs as an html page as
 shown here:
